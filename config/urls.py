@@ -4,8 +4,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
-from apps.core import views as core_views
-from apps.authentication import views as auth_views
+from core import views as core_views
 
 
 urlpatterns = [
