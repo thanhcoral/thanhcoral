@@ -13,7 +13,7 @@
           <div class="box">
             <header class="">
               <div class="col-lg-3">
-                <a href="#" class="icons"><i class="fa fa-file-pdf-o"></i></a>
+                <a href="{% url 'staff-report' %}" class="icons"><i class="fa fa-file-pdf-o"></i></a>
                 <h5>Staff</h5>
               </div>
               <div class="col-lg-8"></div>
@@ -28,6 +28,13 @@
                     <th style="width: 3%; text-align: center; vertical-align:middle;" >ID</th>
                     <th style="width: 8%; text-align: center; vertical-align:middle;" >Username</th>
                     <th style="width: 10%; text-align: center; vertical-align:middle;" >Avatar</th>
+                    <th style="width: 5%; text-align: center; vertical-align:middle;" >Gender</th>
+                    <th style="width: 8%; text-align: center; vertical-align:middle;" >Birthday</th>
+                    <th style="width: 8%; text-align: center; vertical-align:middle;" >Position</th>
+                    <th style="width: 8%; text-align: center; vertical-align:middle;" >Citizen Identification</th>
+                    <th style="width: 8%; text-align: center; vertical-align:middle;" >Tax Code</th>
+                    <th style="width: 8%; text-align: center; vertical-align:middle;" >Marital Status</th>
+                    <th style="width: 8%; text-align: center; vertical-align:middle;" >License Plates</th>
                     <th style="text-align: center; vertical-align:middle;" >Address</th>
                     <th style="width: 8%; text-align: center; vertical-align:middle;" >Action</th>
                   </tr>
@@ -38,6 +45,13 @@
                     <td style="text-align: center; vertical-align:middle;">{{user.id}}</td>
                     <td style="vertical-align:middle;">{{user.username}}</td>
                     <td style="text-align: center;"> <img style="max-width: 100px;" src="{{user.profile.avatar.url}}" alt="avatar" /> </td>
+                    <td style="text-align: center; vertical-align:middle;">{{user.profile.gender}}</td>
+                    <td style="vertical-align:middle;">{{user.profile.birthday|date:"d-m-Y"}}</td>
+                    <td style="vertical-align:middle;">{{user.groups.all.0}}</td>
+                    <td style="vertical-align:middle;">{{user.profile.citizen_identification}}</td>
+                    <td style="vertical-align:middle;">{{user.profile.tax_code}}</td>
+                    <td style="vertical-align:middle;">{{user.profile.marital_status}}</td>
+                    <td style="vertical-align:middle;">{{user.profile.license_plates}}</td>
                     <td style="vertical-align:middle;">{{user.profile.address}}</td>
                     <td style="text-align: center; vertical-align:middle;">
                       <a class="btn btn-danger btn-sm" href="#"> Delete </a>

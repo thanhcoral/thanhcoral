@@ -1,3 +1,4 @@
 django
 pillow
 termcolor
+xhtml2pdf
