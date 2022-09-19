@@ -22,8 +22,10 @@ def users_list(request):
 @group_required('HR', raise_exception=True)
 def users_add(request):
     form = forms.AddUserForm(request.POST or None)
+    form2 = forms.UpdateProfileForm(request.POST or None)
     context = {
         'form': form,
+        'form2': form2,
     }
     if request.method == 'POST':
         if form.is_valid():
@@ -40,6 +42,9 @@ def users_add(request):
             user = form.save()
             group = Group.objects.get(name=request_group)
             user.groups.add(group)
+
+            
+
             messages.success(request, "Succesful")
             return redirect('/hr/users-list')
         else:
