@@ -6,7 +6,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from core import views as core_views, forms
-
+from hr import views as hr_views
 
 urlpatterns = [
     # django-admin-site
@@ -19,7 +19,7 @@ urlpatterns = [
     path('', core_views.index, name='home'),
     path('dashboard', core_views.dashboard, name='dashboard'),
 
-
+    path('hr/users-list', hr_views.user_list, name='users-list')
 
 
 

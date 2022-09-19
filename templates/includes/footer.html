@@ -1,0 +1,36 @@
+{% load static %}
+
+
+<footer class="Footer bg-dark dker">
+    <p>2017 &copy; Metis Bootstrap Admin Template v2.4.2</p>
+  </footer>
+  <!-- /#footer -->
+
+  <script src="{% static 'assets/lib/jquery/jquery.js' %}"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/js/dataTables.bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.26.6/js/jquery.tablesorter.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+
+  <script src="{% static 'assets/lib/bootstrap/js/bootstrap.js' %}"></script>
+  <script src="{% static 'assets/lib/metismenu/metisMenu.js' %}"></script>
+  <script src="{% static 'assets/lib/onoffcanvas/onoffcanvas.js' %}"></script>
+  <script src="{% static 'assets/lib/screenfull/screenfull.js' %}"></script>
+
+
+  <script src="{% static 'assets/js/core.js' %}"></script>
+  <script src="{% static 'assets/js/app.js' %}"></script>
+  <script src="{% static 'assets/js/style-switcher.js' %}"></script>
+  
+  <script>
+    $(function () {
+      Metis.MetisTable();
+      Metis.metisSortable();
+    });
+  </script>
+
+
+  
+  {% block script %}{% endblock script %}

@@ -1,0 +1,63 @@
+{% load static %}
+
+<div id="left">
+    <div class="media user-media bg-dark dker">
+      <div class="user-media-toggleHover">
+        <span class="fa fa-user"></span>
+      </div>
+      <div class="user-wrapper bg-dark">
+        <a class="user-link" href="">
+          <img class="media-object img-thumbnail user-img" style="width: 64px; height: 64px;" alt="User Picture" src="{{request.user.profile.avatar.url}}">
+          {% comment %} <span class="label label-danger user-label">16</span> {% endcomment %}
+        </a>
+
+        <div class="media-body">
+          <h5 class="media-heading">{{request.user.username}}</h5>
+          <ul class="list-unstyled user-info">
+            <li><a href="">{{ request.user.groups.all.0 }}</a></li>
+            <li>Last Access : <br>
+              <small><i class="fa fa-calendar"></i>&nbsp;16 Mar 16:32</small>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!-- #menu -->
+    <ul id="menu" class="bg-blue dker">
+      <li class="nav-header">Menu</li>
+      <li class="nav-divider"></li>
+      <li class="">
+        <a href="{% url 'dashboard' %}">
+          <i class="fa fa-dashboard"></i><span class="link-title">&nbsp;Dashboard</span>
+        </a>
+      </li>
+      <li>
+        <a href="{% url 'users-list' %}">
+          <i class="fa fa-user"></i>
+          <span class="link-title">
+            Users
+          </span>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <i class="fa fa-calendar"></i>
+          <span class="link-title">
+            Timesheet
+          </span>
+        </a>
+      </li>
+      <li class="nav-divider"></li>
+      <li>
+        <a href="{% url 'logout' %}">
+          <i class="fa fa-sign-in"></i>
+          <span class="link-title">
+            Logout
+          </span>
+        </a>
+      </li>
+      
+    </ul>
+    <!-- /#menu -->
+  </div>
+  <!-- /#left -->
