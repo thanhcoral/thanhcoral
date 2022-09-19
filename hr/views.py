@@ -55,6 +55,17 @@ def users_add(request):
     
     return render(request, 'hr/users-add.html', context)
 
+@group_required('HR', raise_exception=True)
+def users_delete(request, pk):
+    try:
+        user = get_user_model().objects.get(id=pk)
+    except:
+        messages.warning(request, "User not exist")
+        return redirect('/hr/users-list')
+    get_user_model().objects.filter(id=pk).delete()
+    messages.success(request, "Delete successfully")
+    return redirect('/hr/users-list')
+
 
 @group_required('HR', raise_exception=True)
 def staff_report(request):
