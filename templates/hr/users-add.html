@@ -1,0 +1,194 @@
+{% extends 'base.html' %}
+{% block title %} Add Staff {% endblock %}
+
+{% block content %}
+<form method="POST">
+<div class="row bg-light">
+    <div class="col-lg-3">
+        <div class="box dark">
+            <header>
+                <div class="icons"><i class="fa fa-edit"></i></div>
+                <h5>Account</h5>
+                <!-- .toolbar -->
+                <div class="toolbar">
+                  <nav style="padding: 8px;">
+                      <a href="javascript:;" class="btn btn-default btn-xs collapse-box">
+                          <i class="fa fa-minus"></i>
+                      </a>
+                      <a href="javascript:;" class="btn btn-default btn-xs full-box">
+                          <i class="fa fa-expand"></i>
+                      </a>
+                      <a href="javascript:;" class="btn btn-danger btn-xs close-box">
+                          <i class="fa fa-times"></i>
+                      </a>
+                  </nav>
+                </div>            <!-- /.toolbar -->
+            </header>
+            <div id="div-1" class="body">
+                <div class="form-horizontal">
+    
+                    <div class="form-group">
+                        <label for="text1" class="control-label col-lg-4">Username</label>
+    
+                        <div class="col-lg-8">
+                            <input type="text" id="text1" placeholder="username" class="form-control">
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+    
+                    <div class="form-group">
+                        <label for="pass1" class="control-label col-lg-4">Password</label>
+    
+                        <div class="col-lg-8">
+                            <input class="form-control" type="password" id="pass1"
+                                   data-original-title="Please use your secure password" data-placement="top"/>
+                                </div>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                        <label for="pass2" class="control-label col-lg-4">Re Password</label>
+                        
+                        <div class="col-lg-8">
+                            <input class="form-control" type="password" id="pass2"
+                                   data-original-title="Please use your secure password" data-placement="top"/>
+                                </div>
+                            </div>
+                            <!-- /.form-group -->
+                            
+                    <div class="form-group">
+                        <label for="email" class="control-label col-lg-4">Email</label>
+    
+                        <div class="col-lg-8">
+                            <input type="email" id="email" placeholder="email" class="form-control">
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+
+                    <div class="form-group">
+                        <div class="col-lg-7"></div>
+                        <button type="submit" class="btn btn-success col-lg-4">Create new staff</button>
+                    </div>
+                    <!-- /.form-group -->
+    
+                            
+                        </div>
+                    </div>
+        </div>
+    </div>
+    <div class="col-lg-7">
+        <div class="box dark">
+            <header>
+                <div class="icons"><i class="fa fa-edit"></i></div>
+                <h5>Input Text Fields</h5>
+                <!-- .toolbar -->
+                <div class="toolbar">
+                  <nav style="padding: 8px;">
+                      <a href="javascript:;" class="btn btn-default btn-xs collapse-box">
+                          <i class="fa fa-minus"></i>
+                      </a>
+                      <a href="javascript:;" class="btn btn-default btn-xs full-box">
+                          <i class="fa fa-expand"></i>
+                      </a>
+                      <a href="javascript:;" class="btn btn-danger btn-xs close-box">
+                          <i class="fa fa-times"></i>
+                      </a>
+                  </nav>
+                </div>            <!-- /.toolbar -->
+            </header>
+            <div id="div-1" class="body">
+                <div class="form-horizontal">
+    
+                    <div class="form-group">
+                        <label for="text1" class="control-label col-lg-4">Normal Input Field</label>
+    
+                        <div class="col-lg-8">
+                            <input type="text" id="text1" placeholder="Email" class="form-control">
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+    
+                    <div class="form-group">
+                        <label for="pass1" class="control-label col-lg-4">Password Field</label>
+    
+                        <div class="col-lg-8">
+                            <input class="form-control" type="password" id="pass1"
+                                   data-original-title="Please use your secure password" data-placement="top"/>
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+    
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">Read only input</label>
+    
+                        <div class="col-lg-8">
+                            <input type="text" value="read only" readonly class="form-control">
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+    
+                    <div class="form-group">
+                        <label class="control-label col-lg-4">Disabled input</label>
+    
+                        <div class="col-lg-8">
+                            <input type="text" value="disabled" disabled class="form-control">
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+    
+                    <div class="form-group">
+                        <label for="text2" class="control-label col-lg-4">With Placeholder</label>
+    
+                        <div class="col-lg-8">
+                            <input type="text" id="text2" placeholder="placeholder text" class="form-control">
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+    
+                    <div class="form-group">
+                        <label for="limiter" class="control-label col-lg-4">Input limiter</label>
+    
+                        <div class="col-lg-8">
+                            <textarea id="limiter" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <!-- /.row -->
+    
+                    <div class="form-group">
+                        <label for="text4" class="control-label col-lg-4">Default Textarea</label>
+    
+                        <div class="col-lg-8">
+                            <textarea id="text4" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+    
+                    <div class="form-group">
+                        <label for="autosize" class="control-label col-lg-4">Textarea With Autosize</label>
+    
+                        <div class="col-lg-8">
+                            <textarea id="autosize" class="form-control"></textarea>
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+    
+                    <div class="form-group">
+                        <label for="tags" class="control-label col-lg-4">Tags</label>
+    
+                        <div class="col-lg-8">
+                            <input name="tags" id="tags" value="foo,bar,baz" class="form-control">
+                        </div>
+                    </div>
+                    <!-- /.form-group -->
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--END TEXT INPUT FIELD-->
+    
+  
+    </div>
+    <!-- /.row -->
+</form>
+{% endblock %}
