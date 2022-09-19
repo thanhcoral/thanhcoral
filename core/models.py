@@ -42,6 +42,7 @@ class Profile(models.Model):
 
     first_name = models.CharField(_("first name"), max_length=100, blank=True)
     last_name = models.CharField(_("last name"), max_length=100, blank=True)    # Surname
+    phone = models.CharField(_("phone"), max_length=100, blank=True, null=True)
     birthday = models.DateField(_("birthday"), max_length=10, blank=True, null=True)
     gender = models.CharField(_("gender"), max_length=100, blank=True, choices=GENDER_CHOICES)
     age = models.IntegerField(_("age"), blank=True, null=True)

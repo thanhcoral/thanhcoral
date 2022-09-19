@@ -26,8 +26,9 @@
                 <thead>
                   <tr>
                     <th style="width: 3%; text-align: center; vertical-align:middle;" >ID</th>
-                    <th style="width: 8%; text-align: center; vertical-align:middle;" >Username</th>
+                    <th style="width: 5%; text-align: center; vertical-align:middle;" >Username</th>
                     <th style="width: 10%; text-align: center; vertical-align:middle;" >Avatar</th>
+                    <th style="width: 8%; text-align: center; vertical-align:middle;" >Phone</th>
                     <th style="width: 5%; text-align: center; vertical-align:middle;" >Gender</th>
                     <th style="width: 8%; text-align: center; vertical-align:middle;" >Birthday</th>
                     <th style="width: 8%; text-align: center; vertical-align:middle;" >Position</th>
@@ -45,6 +46,7 @@
                     <td style="text-align: center; vertical-align:middle;">{{user.id}}</td>
                     <td style="vertical-align:middle;">{{user.username}}</td>
                     <td style="text-align: center;"> <img style="max-width: 100px;" src="{{user.profile.avatar.url}}" alt="avatar" /> </td>
+                    <td style="text-align: center; vertical-align:middle;">{{user.profile.phone}}</td>
                     <td style="text-align: center; vertical-align:middle;">{{user.profile.gender}}</td>
                     <td style="vertical-align:middle;">{{user.profile.birthday|date:"d-m-Y"}}</td>
                     <td style="vertical-align:middle;">{{user.groups.all.0}}</td>
