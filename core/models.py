@@ -46,7 +46,7 @@ class Profile(models.Model):
     birthday = models.DateField(_("birthday"), max_length=10, blank=True, null=True)
     gender = models.CharField(_("gender"), max_length=100, blank=True, choices=GENDER_CHOICES)
     age = models.IntegerField(_("age"), blank=True, null=True)
-    address = models.CharField(_("address"), max_length=100, blank=True)
+    address = models.CharField(_("address"), max_length=100, blank=True, null=True)
     avatar = models.ImageField(default='images/avatar_default1.jpg', upload_to='images')
     citizen_identification = models.CharField(_("citizen identification"), max_length=100, blank=True, null=True)
     tax_code = models.CharField(_("tax code"), max_length=100, blank=True, null=True)

@@ -150,17 +150,6 @@ class AddUserForm(UserCreationForm):
         model = get_user_model()
         fields = ('username', 'email', 'password1', 'password2', 'groups')
 
-class UpdateUserForm(forms.ModelForm):
-    username = forms.CharField(max_length=100,
-                               required=True,
-                               widget=forms.TextInput(attrs={'class': 'form-control'}))
-    email = forms.EmailField(required=False,
-                             widget=forms.TextInput(attrs={'class': 'form-control'}))
-
-    class Meta:
-        model = get_user_model()
-        fields = ['username', 'email']
-
 
 class UpdateProfileForm(forms.ModelForm):
     # avatar = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
@@ -171,6 +160,9 @@ class UpdateProfileForm(forms.ModelForm):
         # fields = ['avatar', 'address']
         fields = ['address']
 
+    def __init__(self, *args, **kwargs):
+        super(UpdateProfileForm, self).__init__(*args, **kwargs)
+        self.fields['address'].required = False
 
 
 

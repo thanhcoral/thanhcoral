@@ -8,7 +8,7 @@ from django.contrib.auth.views import LoginView
 from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 
-from core.forms import RegisterForm, LoginForm, AddUserForm, UpdateProfileForm, UpdateUserForm
+from core.forms import RegisterForm, LoginForm, AddUserForm, UpdateProfileForm
 
 from common.authorization import group_required, lv
 from common.utils import get_time_now

@@ -28,7 +28,7 @@ def users_add(request):
         'form2': form2,
     }
     if request.method == 'POST':
-        if form.is_valid():
+        if form.is_valid() and form2.is_valid():
             recent_group = request.user.groups.first().name
             request_group = form.cleaned_data.get('groups')
             print(colored(request_group, 'blue'))
@@ -43,7 +43,10 @@ def users_add(request):
             group = Group.objects.get(name=request_group)
             user.groups.add(group)
 
-            
+            target_user = get_user_model().objects.get(id=user.id)
+            profile_form = forms.UpdateProfileForm(request.POST, instance=target_user.profile)
+            profile_form.save()
+
 
             messages.success(request, "Succesful")
             return redirect('/hr/users-list')
