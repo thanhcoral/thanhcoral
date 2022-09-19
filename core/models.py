@@ -47,7 +47,7 @@ class Profile(models.Model):
     gender = models.CharField(_("gender"), max_length=100, blank=True, choices=GENDER_CHOICES)
     age = models.IntegerField(_("age"), blank=True, null=True)
     address = models.CharField(_("address"), max_length=100, blank=True)
-    avatar = models.ImageField(default='images/avatar_default.jpg', upload_to='images')
+    avatar = models.ImageField(default='images/avatar_default1.jpg', upload_to='images')
     citizen_identification = models.CharField(_("citizen identification"), max_length=100, blank=True, null=True)
     tax_code = models.CharField(_("tax code"), max_length=100, blank=True, null=True)
     degree = models.CharField(_("degree"), max_length=100, blank=True, null=True)
@@ -57,4 +57,9 @@ class Profile(models.Model):
 
     def __str__(self):
         return f"Profile of {self.user.username}"
+
+    def save(self, *args, **kwargs):
+        if self.gender == 'Female':
+            self.avatar = 'images/avatar_default2.jpg'
+        return super().save(*args, **kwargs)
 
