@@ -84,7 +84,6 @@ def users_edit(request, pk):
 
     return render(request, 'hr/users-edit.html', {'target_user': target_user, 'form': form, 'form2': form2})
 
-
 @group_required('HR', raise_exception=True)
 def staff_report(request):
     context = {
@@ -93,4 +92,6 @@ def staff_report(request):
     open('templates/temp.html', "w").write(render_to_string('reports/staff.html', context))
     pdf = html_to_pdf('temp.html')
     return HttpResponse(pdf, content_type='application/pdf')
+
+
 

@@ -15,6 +15,8 @@ urlpatterns = [
     # auth
     path('login', core_views.LoginView.as_view(redirect_authenticated_user=True, template_name='auth/login.html', authentication_form=forms.LoginForm), name='login'),
     path('logout', LogoutView.as_view(template_name='auth/logout.html'), name='logout'),
+    path('checkin', core_views.checkin, name='checkin'),
+    path('checkout', core_views.checkout, name='checkout'),
 
     path('', core_views.index, name='home'),
     path('dashboard', core_views.dashboard, name='dashboard'),

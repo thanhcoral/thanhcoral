@@ -1,3 +1,7 @@
 from django.contrib import admin
 
-# Register your models here.
+from hr import models
+
+
+admin.site.register(models.TimeSheet)
+admin.site.register(models.Salary)
