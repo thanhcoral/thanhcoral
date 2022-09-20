@@ -15,6 +15,30 @@ GENDER_CHOICES = (
     ('Unknown', 'Unknown'),
 )
 
+MARITAL_STATUS_CHOICES = (
+    ('Single ', 'Single '),
+    ('Engaged', 'Engaged'),
+    ('Married', 'Married'),
+    ('Separated', 'Separated'),
+    ('Divorced', 'Divorced'),
+    ('Widow', 'Widow'),
+    ('Widower', 'Widower'),
+    ('Unknown', 'Unknown'),
+)
+
+DEGREE_CHOICES = {
+    ('Professional Certificate', 'Professional Certificate'),
+    ('Undergraduate Degrees', 'Undergraduate Degrees'),
+    ('Transfer Degree', 'Transfer Degree'),
+    ('Associate Degree', 'Associate Degree'),
+    ('Bachelor Degree', 'Bachelor Degree'),
+    ('Graduate Degrees', 'Graduate Degrees'),
+    ('Master Degree', 'Master Degree'),
+    ('Doctoral Degree', 'Doctoral Degree'),
+    ('Professional Degree', 'Professional Degree'),
+    ('Specialist Degree', 'Specialist Degree'),
+}
+
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField(_("username"), max_length=100, unique=True, validators=[UnicodeUsernameValidator()], error_messages={"unique": _("A user with that username already exists."),})
     email = models.EmailField(_("email address"), blank=True)
@@ -50,10 +74,10 @@ class Profile(models.Model):
     avatar = models.ImageField(default='images/avatar_default1.jpg', upload_to='images')
     citizen_identification = models.CharField(_("citizen identification"), max_length=100, blank=True, null=True)
     tax_code = models.CharField(_("tax code"), max_length=100, blank=True, null=True)
-    degree = models.CharField(_("degree"), max_length=100, blank=True, null=True)
-    certificate = models.CharField(_("certificate"), max_length=100, blank=True, null=True)
-    marital_status = models.CharField(_("marital_status"), max_length=100, blank=True, null=True)
-    license_plates = models.CharField(_("license_plates"), max_length=100, blank=True, null=True)
+    degree = models.CharField(_("degree"), max_length=100, blank=True, null=True, choices=DEGREE_CHOICES)
+    certificate = models.TextField(_("certificate"), blank=True, null=True)
+    marital_status = models.CharField(_("marital_status"), max_length=100, blank=True, null=True, choices=MARITAL_STATUS_CHOICES)
+    license_plates = models.CharField(_("license_plates"), max_length=100, blank=True, null=True,)
 
     def __str__(self):
         return f"Profile of {self.user.username}"

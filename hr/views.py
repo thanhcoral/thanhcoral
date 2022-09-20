@@ -44,7 +44,7 @@ def users_add(request):
             user.groups.add(group)
 
             target_user = get_user_model().objects.get(id=user.id)
-            profile_form = forms.UpdateProfileForm(request.POST, instance=target_user.profile)
+            profile_form = forms.UpdateProfileForm(request.POST, request.FILES, instance=target_user.profile)
             profile_form.save()
 
 
@@ -65,6 +65,39 @@ def users_delete(request, pk):
     get_user_model().objects.filter(id=pk).delete()
     messages.success(request, "Delete successfully")
     return redirect('/hr/users-list')
+
+@group_required('HR', raise_exception=True)
+def users_edit(request, pk):
+    user = get_user_model().objects.get(id=pk)
+    if request.method == 'POST':
+        form = forms.UpdateUserForm(request.POST, instance=target_user)
+        form2 = forms.UpdateProfileForm(request.POST, request.FILES, instance=target_user.profile)
+        if form.is_valid() and form2.is_valid():
+            recent_group = request.user.groups.first().name
+            request_group = form.cleaned_data.get('groups')
+            print(colored(request_group, 'blue'))
+            if lv(recent_group) >= lv(request_group):
+                messages.warning(request, "You do not have permission add user at position:" + recent_group)
+                context = {
+                    'form': form,
+                }
+                return render(request, 'hr/users-add.html', context)
+
+            user = form.save()
+            group = Group.objects.get(name=request_group)
+            user.groups.add(group)
+
+            target_user = get_user_model().objects.get(id=user.id)
+            profile_form = forms.UpdateProfileForm(request.POST, instance=target_user.profile)
+            profile_form.save()
+
+
+            messages.success(request, "Succesful")
+            return redirect('/hr/users-list')
+        else:
+            print(colored('form is not valid', 'red'))
+    
+    return render(request, 'hr/users-add.html', context)
 
 
 @group_required('HR', raise_exception=True)

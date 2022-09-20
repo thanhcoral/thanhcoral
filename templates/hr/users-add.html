@@ -2,175 +2,170 @@
 {% block title %} Add Staff {% endblock %}
 
 {% block content %}
-<form method="POST">
-{% csrf_token %}
-<div class="row bg-light">
-    <div class="col-lg-3">
-        <div class="box dark">
-            <header>
-                <div class="icons"><i class="fa fa-edit"></i></div>
-                <h5>Account</h5>
-                <!-- .toolbar -->
-                <div class="toolbar">
-                  <nav style="padding: 8px;">
-                      <a href="javascript:;" class="btn btn-default btn-xs collapse-box">
-                          <i class="fa fa-minus"></i>
-                      </a>
-                      <a href="javascript:;" class="btn btn-default btn-xs full-box">
-                          <i class="fa fa-expand"></i>
-                      </a>
-                      <a href="javascript:;" class="btn btn-danger btn-xs close-box">
-                          <i class="fa fa-times"></i>
-                      </a>
-                  </nav>
-                </div>            <!-- /.toolbar -->
-            </header>
-            <div id="div-1" class="body">
-                <div class="form-horizontal">
-                    <div class="form-group">
-                        <label for="text1" class="control-label col-lg-4">Username</label>
-                        <div class="col-lg-8"> {{form.username}} </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="pass1" class="control-label col-lg-4">Password</label>
-    
-                        <div class="col-lg-8"> {{form.password1}} </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="pass2" class="control-label col-lg-4">Re Password</label>
-                        <div class="col-lg-8"> {{form.password2}} </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="control-label col-lg-4">Email</label>
-                        <div class="col-lg-8"> {{form.email}} </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label col-lg-4">Select Dropdown</label>
-                        <div class="col-lg-8">
-                            {{form.groups}}
+<form method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="row bg-light">
+        <div class="col-lg-3">
+            <div class="box dark">
+                <header>
+                    <div class="icons"><i class="fa fa-edit"></i></div>
+                    <h5>Account</h5>
+                    <!-- .toolbar -->
+                    <div class="toolbar">
+                        <nav style="padding: 8px;">
+                            <a href="javascript:;" class="btn btn-default btn-xs collapse-box">
+                                <i class="fa fa-minus"></i>
+                            </a>
+                            <a href="javascript:;" class="btn btn-default btn-xs full-box">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                            <a href="javascript:;" class="btn btn-danger btn-xs close-box">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </nav>
+                    </div> <!-- /.toolbar -->
+                </header>
+                <div id="div-1" class="body">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label for="text1" class="control-label col-lg-4">Username</label>
+                            <div class="col-lg-8"> {{form.username}} </div>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-lg-7"></div>
-                        <button type="submit" class="btn btn-success col-lg-4">Create new staff</button>
+                        <div class="form-group">
+                            <label for="pass1" class="control-label col-lg-4">Password</label>
+
+                            <div class="col-lg-8"> {{form.password1}} </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pass2" class="control-label col-lg-4">Re Password</label>
+                            <div class="col-lg-8"> {{form.password2}} </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email" class="control-label col-lg-4">Email</label>
+                            <div class="col-lg-8"> {{form.email}} </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-lg-4">Select Dropdown</label>
+                            <div class="col-lg-8">
+                                {{form.groups}}
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-lg-7"></div>
+                            <button type="submit" class="btn btn-success col-lg-4">Create new staff</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-7">
-        <div class="box dark">
-            <header>
-                <div class="icons"><i class="fa fa-edit"></i></div>
-                <h5>Input Text Fields</h5>
-                <!-- .toolbar -->
-                <div class="toolbar">
-                  <nav style="padding: 8px;">
-                      <a href="javascript:;" class="btn btn-default btn-xs collapse-box">
-                          <i class="fa fa-minus"></i>
-                      </a>
-                      <a href="javascript:;" class="btn btn-default btn-xs full-box">
-                          <i class="fa fa-expand"></i>
-                      </a>
-                      <a href="javascript:;" class="btn btn-danger btn-xs close-box">
-                          <i class="fa fa-times"></i>
-                      </a>
-                  </nav>
-                </div>            <!-- /.toolbar -->
-            </header>
-            <div id="div-1" class="body">
-                <div class="form-horizontal">
+        <div class="col-lg-6">
+            <div class="box dark">
+                <header>
+                    <div class="icons"><i class="fa fa-edit"></i></div>
+                    <h5>Profile</h5>
+                    <!-- .toolbar -->
+                    <div class="toolbar">
+                        <nav style="padding: 8px;">
+                            <a href="javascript:;" class="btn btn-default btn-xs collapse-box">
+                                <i class="fa fa-minus"></i>
+                            </a>
+                            <a href="javascript:;" class="btn btn-default btn-xs full-box">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                            <a href="javascript:;" class="btn btn-danger btn-xs close-box">
+                                <i class="fa fa-times"></i>
+                            </a>
+                        </nav>
+                    </div> <!-- /.toolbar -->
+                </header>
+                <div id="div-1" class="body">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="form-group col-lg-6">
+                                <label for="text1" class="control-label col-lg-4">First name</label>
+                                <div class="col-lg-8"> {{form2.first_name}} </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="text1" class="control-label col-lg-4">Last name</label>
+                                <div class="col-lg-8"> {{form2.last_name}} </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="text1" class="control-label col-lg-4">Phone</label>
+                                <div class="col-lg-8"> {{form2.phone}} </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="text1" class="control-label col-lg-4">citizen_identification</label>
+                                <div class="col-lg-8"> {{form2.citizen_identification}} </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="text1" class="control-label col-lg-4">tax_code</label>
+                                <div class="col-lg-8"> {{form2.tax_code}} </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="text1" class="control-label col-lg-4">license_plates</label>
+                                <div class="col-lg-8"> {{form2.license_plates}} </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="control-label col-lg-4">Gender</label>
+                                <div class="col-lg-8">
+                                    {{form2.gender}}
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="control-label col-lg-4">degree</label>
+                                <div class="col-lg-8">
+                                    {{form2.degree}}
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="control-label col-lg-4">marital_status</label>
+                                <div class="col-lg-8">
+                                    {{form2.marital_status}}
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="control-label col-lg-4">Date</label>
+                                <div class="col-lg-8">
+                                    {% comment %} <input type="date" id="date2" name="date2" class="form-control"> {% endcomment %}
+                                    {{form2.birthday}}
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="text1" class="control-label col-lg-4">Adress</label>
     
-                    <div class="form-group">
-                        <label for="text1" class="control-label col-lg-4">Adress</label>
+                                <div class="col-lg-8">
+                                    {{form2.address}}
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label for="text1" class="control-label col-lg-4">certificate</label>
     
-                        <div class="col-lg-8">
-                            {{form2.address}}
+                                <div class="col-lg-8">
+                                    {{form2.certificate}}
+                                </div>
+                            </div>
+                            <div class="form-group col-lg-6">
+                                <label class="control-label col-lg-4">Avatar</label>
+                                <div class="col-lg-8">
+                                    <div class="fileinput fileinput-new" data-provides="fileinput">
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;"><img data-src="holder.js/100%x100%" alt="..."></div>
+                                        <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
+                                        <div>{{form2.avatar}}<a href="#" class="btn btn-default fileinput-exists"data-dismiss="fileinput">Remove</a></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <!-- /.form-group -->
-    
-                    <div class="form-group">
-                        <label for="pass1" class="control-label col-lg-4">Password Field</label>
-    
-                        <div class="col-lg-8">
-                            <input class="form-control" type="password" id="pass1"
-                                   data-original-title="Please use your secure password" data-placement="top"/>
-                        </div>
-                    </div>
-                    <!-- /.form-group -->
-    
-                    <div class="form-group">
-                        <label class="control-label col-lg-4">Read only input</label>
-    
-                        <div class="col-lg-8">
-                            <input type="text" value="read only" readonly class="form-control">
-                        </div>
-                    </div>
-                    <!-- /.form-group -->
-    
-                    <div class="form-group">
-                        <label class="control-label col-lg-4">Disabled input</label>
-    
-                        <div class="col-lg-8">
-                            <input type="text" value="disabled" disabled class="form-control">
-                        </div>
-                    </div>
-                    <!-- /.form-group -->
-    
-                    <div class="form-group">
-                        <label for="text2" class="control-label col-lg-4">With Placeholder</label>
-    
-                        <div class="col-lg-8">
-                            <input type="text" id="text2" placeholder="placeholder text" class="form-control">
-                        </div>
-                    </div>
-                    <!-- /.form-group -->
-    
-                    <div class="form-group">
-                        <label for="limiter" class="control-label col-lg-4">Input limiter</label>
-    
-                        <div class="col-lg-8">
-                            <textarea id="limiter" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <!-- /.row -->
-    
-                    <div class="form-group">
-                        <label for="text4" class="control-label col-lg-4">Default Textarea</label>
-    
-                        <div class="col-lg-8">
-                            <textarea id="text4" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <!-- /.form-group -->
-    
-                    <div class="form-group">
-                        <label for="autosize" class="control-label col-lg-4">Textarea With Autosize</label>
-    
-                        <div class="col-lg-8">
-                            <textarea id="autosize" class="form-control"></textarea>
-                        </div>
-                    </div>
-                    <!-- /.form-group -->
-    
-                    <div class="form-group">
-                        <label for="tags" class="control-label col-lg-4">Tags</label>
-    
-                        <div class="col-lg-8">
-                            <input name="tags" id="tags" value="foo,bar,baz" class="form-control">
-                        </div>
-                    </div>
-                    <!-- /.form-group -->
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!--END TEXT INPUT FIELD-->
-    
-  
+
+        <!--END TEXT INPUT FIELD-->
+
+
     </div>
     <!-- /.row -->
 </form>
+
+
 {% endblock %}

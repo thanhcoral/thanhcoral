@@ -2,7 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm 
 from django.contrib.auth import get_user_model
 
-from core.models import Profile
+from core import models
 
 from common.authorization import GROUP_CHOICE
 
@@ -152,17 +152,42 @@ class AddUserForm(UserCreationForm):
 
 
 class UpdateProfileForm(forms.ModelForm):
-    # avatar = forms.ImageField(widget=forms.FileInput(attrs={'class': 'form-control-file'}))
-    address = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 5}))
+    first_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control",'value': 'thanh',}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Last name","class": "form-control",'value': 'thanh',}))
+    phone = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Phone","class": "form-control",'value': '1234567890',}))
+    citizen_identification = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control",'value': '094523335841',}))
+    tax_code = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control",'value': '894654',}))
+    license_plates = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control",'value': '98L3-135157',}))
+    
+    address = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 3}))
+    certificate = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 3}))
+    
+    gender = forms.ChoiceField(choices=models.GENDER_CHOICES,widget=forms.Select(attrs={"class": "form-control"}))
+    degree = forms.ChoiceField(choices=models.DEGREE_CHOICES,widget=forms.Select(attrs={"class": "form-control"}))
+    marital_status = forms.ChoiceField(choices=models.MARITAL_STATUS_CHOICES,widget=forms.Select(attrs={"class": "form-control"}))
 
+    birthday = forms.DateField(widget=forms.TextInput(attrs={"class": "form-control",'id': 'date2','type': "date",'name': "date2"}))
+
+    avatar = forms.ImageField(widget=forms.FileInput(attrs={}))
     class Meta:
-        model = Profile
-        # fields = ['avatar', 'address']
-        fields = ['address']
+        model = models.Profile
+        fields = ['first_name', 'last_name', 'phone', 'citizen_identification', 'tax_code', 'license_plates', 'avatar', 'address', 'certificate', 'gender', 'degree', 'marital_status', 'birthday']
 
     def __init__(self, *args, **kwargs):
         super(UpdateProfileForm, self).__init__(*args, **kwargs)
+        self.fields['first_name'].required = False
+        self.fields['last_name'].required = False
+        self.fields['phone'].required = False
+        self.fields['citizen_identification'].required = False
+        self.fields['tax_code'].required = False
+        self.fields['license_plates'].required = False
         self.fields['address'].required = False
+        self.fields['certificate'].required = False
+        self.fields['avatar'].required = False
+        self.fields['gender'].required = False
+        self.fields['degree'].required = False
+        self.fields['marital_status'].required = False
+        self.fields['birthday'].required = False
 
 
 
