@@ -21,6 +21,7 @@ urlpatterns = [
 
     path('hr/users-list', hr_views.users_list, name='users-list'),
     path('hr/users-add', hr_views.users_add, name='users-add'),
+    path('hr/users-edit/<int:pk>', hr_views.users_edit, name='users-edit'),
     path('hr/users-delete/<int:pk>', hr_views.users_delete, name='users-delete'),
     path('hr/staff-report', hr_views.staff_report, name='staff-report'),
     

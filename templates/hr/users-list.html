@@ -57,7 +57,7 @@
                     <td style="vertical-align:middle;">{{user.profile.address}}</td>
                     <td style="text-align: center; vertical-align:middle;">
                       <a class="btn btn-danger btn-sm" href="{% url 'users-delete' pk=user.id %}"> Delete </a>
-                      <a class="btn btn-primary btn-sm" href="#"> Edit </a>
+                      <a class="btn btn-primary btn-sm" href="{% url 'users-edit' pk=user.id %}"> Edit </a>
                     </td>
                   </tr>
                   {% endfor %}

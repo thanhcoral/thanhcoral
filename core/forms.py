@@ -151,13 +151,20 @@ class AddUserForm(UserCreationForm):
         fields = ('username', 'email', 'password1', 'password2', 'groups')
 
 
+class UpdateUserForm(forms.ModelForm):
+    username = forms.CharField(max_length=100,required=True,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(required=False,widget=forms.TextInput(attrs={'class': 'form-control'}))
+    class Meta:
+        model = get_user_model()
+        fields = ['username', 'email']
+
 class UpdateProfileForm(forms.ModelForm):
-    first_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control",'value': 'thanh',}))
-    last_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Last name","class": "form-control",'value': 'thanh',}))
-    phone = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Phone","class": "form-control",'value': '1234567890',}))
-    citizen_identification = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control",'value': '094523335841',}))
-    tax_code = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control",'value': '894654',}))
-    license_plates = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control",'value': '98L3-135157',}))
+    first_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control"}))
+    last_name = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Last name","class": "form-control"}))
+    phone = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "Phone","class": "form-control"}))
+    citizen_identification = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control"}))
+    tax_code = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control"}))
+    license_plates = forms.CharField(widget=forms.TextInput(attrs={"placeholder": "First name","class": "form-control"}))
     
     address = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 3}))
     certificate = forms.CharField(widget=forms.Textarea(attrs={'class': 'form-control', 'rows': 3}))

@@ -32,27 +32,12 @@
                             <div class="col-lg-8"> {{form.username}} </div>
                         </div>
                         <div class="form-group">
-                            <label for="pass1" class="control-label col-lg-4">Password</label>
-
-                            <div class="col-lg-8"> {{form.password1}} </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="pass2" class="control-label col-lg-4">Re Password</label>
-                            <div class="col-lg-8"> {{form.password2}} </div>
-                        </div>
-                        <div class="form-group">
                             <label for="email" class="control-label col-lg-4">Email</label>
                             <div class="col-lg-8"> {{form.email}} </div>
                         </div>
                         <div class="form-group">
-                            <label class="control-label col-lg-4">Select Dropdown</label>
-                            <div class="col-lg-8">
-                                {{form.groups}}
-                            </div>
-                        </div>
-                        <div class="form-group">
                             <div class="col-lg-7"></div>
-                            <button type="submit" class="btn btn-success col-lg-4">Create new staff</button>
+                            <button type="submit" class="btn btn-success col-lg-4">Update</button>
                         </div>
                     </div>
                 </div>
@@ -148,7 +133,7 @@
                                 <label class="control-label col-lg-4">Avatar</label>
                                 <div class="col-lg-8">
                                     <div class="fileinput fileinput-new" data-provides="fileinput">
-                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;"><img data-src="holder.js/100%x100%" alt="..."></div>
+                                        <div class="fileinput-new thumbnail" style="width: 200px; height: 150px;"><img style="max-height: 140px;;" src="{{target_user.profile.avatar.url}}" alt="..."></div>
                                         <div class="fileinput-preview fileinput-exists thumbnail" style="max-width: 200px; max-height: 150px;"></div>
                                         <div>
                                             {{form2.avatar}}
