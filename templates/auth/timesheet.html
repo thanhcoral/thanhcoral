@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block title %} Timesheet {% endblock title%}
+
+
+
+{% block content %}
+<div id="content">
+    <div class="outer">
+        <div class="inner bg-light lter">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="box">
+                        <header>
+                            <div class="icons"><i class="fa fa-table"></i></div>
+                            <h5>Timesheet</h5>
+                        </header>
+                    <div id="collapse4" class="body">
+                        <table  class="table table-bordered table-condensed table-hover table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th style="text-align: center; width: 5%;">No</th>
+                                    <th style="text-align: center; width: 15%;">Date</th>
+                                    <th style="text-align: center; width: 8%;">Checkin</th>
+                                    <th style="text-align: center; width: 8%;">Checkout</th>
+                                    <th style="text-align: center; width: 8%;">Early</th>
+                                    <th style="text-align: center; width: 8%;">Late</th>
+                                    <th style="text-align: center; width: 8%;">In office</th>
+                                    <th style="text-align: center; width: 8%;">OT</th>
+                                    <th style="text-align: center; width: 8%;">Work time</th>
+                                    <th style="text-align: center; width: 8%;">Lack</th>
+                                    <th style="text-align: center; ">Action</th>
+                                    
+                                </tr>
+                                </thead>
+                            <tbody>
+                                {% for i in t %}
+                                <tr>
+                                    <td style="vertical-align:middle;" > {{i.day}} </td>
+                                    <td style="vertical-align:middle;" > {{i.day}} - {{i.month}} - {{i.year}} </td>
+                                    <td style="vertical-align:middle;" > {{i.checkin}} </td>
+                                    <td style="vertical-align:middle;" > {{i.checkout}} </td>
+                                    <td style="vertical-align:middle;" >  </td>
+                                    <td style="vertical-align:middle;" > {{i.late}} </td>
+                                    <td style="vertical-align:middle;" > {{i.time}} </td>
+                                    <td style="vertical-align:middle;" > {{i.ot}} </td>
+                                    <td style="vertical-align:middle;" >  </td>
+                                    <td style="vertical-align:middle;" >  </td>
+                                    <td>
+                                        <a href="#" class="btn btn-success btn-sm">Forget</a>
+                                        <a href="#" class="btn btn-primary btn-sm">Late/Early</a>
+                                        <a href="#" class="btn btn-danger btn-sm">Leave</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /#content -->
+{% endblock content %}

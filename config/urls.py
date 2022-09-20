@@ -17,6 +17,7 @@ urlpatterns = [
     path('logout', LogoutView.as_view(template_name='auth/logout.html'), name='logout'),
     path('checkin', core_views.checkin, name='checkin'),
     path('checkout', core_views.checkout, name='checkout'),
+    path('timesheet', core_views.timesheet, name='timesheet'),
 
     path('', core_views.index, name='home'),
     path('dashboard', core_views.dashboard, name='dashboard'),

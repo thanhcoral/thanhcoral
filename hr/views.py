@@ -8,6 +8,7 @@ from django.contrib import messages
 from django.contrib.auth.models import Group
 
 from core import forms
+from hr import models
 
 from common.authorization import group_required, lv
 from common.utils import html_to_pdf, get_time_now
@@ -92,6 +93,5 @@ def staff_report(request):
     open('templates/temp.html', "w").write(render_to_string('reports/staff.html', context))
     pdf = html_to_pdf('temp.html')
     return HttpResponse(pdf, content_type='application/pdf')
-
 
 

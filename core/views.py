@@ -2,7 +2,6 @@ import datetime
 from time import strftime, gmtime
 from calendar import monthrange
 
-
 from django.utils import timezone
 from django.shortcuts import render, redirect
 from django.views import View
@@ -77,4 +76,42 @@ def checkout(request):
     timesheet.save()
     # print( strftime("%H:%M:%S", gmtime(timesheet.time)) )
     return redirect('/')
+
+@group_required('HR', raise_exception=True)
+def timesheet(request):
+    year, month, tmp = get_time_now()
+
+    all_days = monthrange(year, month)
+    t = []
+
+    for day in range(1, all_days[1]+1):
+        try:
+            list = models.TimeSheet.objects.get(user=request.user, day=day)
+            checkout = list.checkout.time if (list.checkout is not None) else ''
+            late = '' if (list.late == 0) else strftime("%H:%M", gmtime(list.late))
+            ot = '' if (list.ot == 0) else strftime("%H:%M", gmtime(list.ot))
+            
+            t.append({
+                'day' : day, 
+                'month': month, 
+                'year': year, 
+                'checkin': list.checkin.time,
+                'checkout': checkout, 
+                'late': late, 
+                'ot': ot, 
+                'time': strftime("%H:%M", gmtime(list.time)),
+            })
+        except:
+            t.append({'day' : day, 'month': month, 'year': year, })
+
+    try:
+        salary = models.Salary.objects.get(user=request.user, month=month)
+    except:
+        salary = ''
+
+    context = {
+        't': t,
+        'salary': salary,
+    }
+    return render(request, 'auth/timesheet.html', context)
 
