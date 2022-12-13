@@ -1,1 +1,9 @@
 ###
+Human Resources (HR)
+Manufacturing (MF)
+Sales & Distributions (SD)
+Bills Of Material (BOM)
+Inventory (INV)
+Accounts Payable(AP)
+Accounts Receivable(AR)
+General Ledger (GL)
