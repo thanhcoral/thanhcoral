@@ -7,8 +7,13 @@
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         "**/.venv": true,
+        "**/__pycache__": true,
+        "**/migrations": true,
         "**/__init__.py": true,
-        "**/__pycache__": true
+        "**/admin.py": true,
+        "**/apps.py": true,
+        "**/tests.py": true,
+        "**/wsgi.py": true,
     },
     "hide-files.files": []
 }
